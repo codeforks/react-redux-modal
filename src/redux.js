@@ -8,9 +8,9 @@ export const ADD_MODAL = '@react-redux-modal.ADD_MODAL';
 export const REMOVE_MODAL = '@react-redux-modal.REMOVE_MODAL';
 export const CLEAR_ALL = '@react-redux-modal.CLEAR_ALL';
 
-const initialSate = {
+const initialSate = fromJS({
   modals: []
-};
+});
 
 export default createReducer(initialSate, {
   [ADD_MODAL]: (state, payload) => {
