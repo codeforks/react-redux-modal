@@ -5,7 +5,7 @@ import {EE} from './emitter';
 import * as actions from './redux';
 import Modal from './Modal';
 
-@connect(state => ({modals: state.getIn(['modals', 'modals'].toJS())}), actions)
+@connect(state => ({modals: state.getIn(['modals', 'modals']).toJS()}), actions)
 class ReduxModal extends Component {
   constructor(props) {
     super(props);
