@@ -14,22 +14,13 @@ const initialSate = fromJS({
 
 export default createReducer(initialSate, {
   [ADD_MODAL]: (state, payload) => {
-    return fromJS({
-      ...state,
-      modals: [
-        ...state.modals,
-        {
-          id: uiid.v1(),
-          ...payload
-        }
-      ]
-    });
+    return state.set('modals', state.get('modals').concat(fromJS([{
+      id: uiid.v1(),
+      ...payload
+    }])))
   },
   [REMOVE_MODAL]: (state, id) => {
-    return fromJS({
-      ...state,
-      modals: state.modals.filter(modal => modal.id !== id)
-    });
+    return state.set('modals', state.get('modals').filter(modal => modal.id !== id))
   },
   [CLEAR_ALL]: () => {
     return fromJS({
