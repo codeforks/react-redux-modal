@@ -2,6 +2,7 @@
 
 import uiid from 'uuid';
 import {createReducer}  from './utils.js';
+import {fromJS} from 'immutable';
 
 export const ADD_MODAL = '@react-redux-modal.ADD_MODAL';
 export const REMOVE_MODAL = '@react-redux-modal.REMOVE_MODAL';
@@ -13,7 +14,7 @@ const initialSate = {
 
 export default createReducer(initialSate, {
   [ADD_MODAL]: (state, payload) => {
-    return {
+    return fromJS({
       ...state,
       modals: [
         ...state.modals,
@@ -22,18 +23,18 @@ export default createReducer(initialSate, {
           ...payload
         }
       ]
-    };
+    });
   },
   [REMOVE_MODAL]: (state, id) => {
-    return {
+    return fromJS({
       ...state,
       modals: state.modals.filter(modal => modal.id !== id)
-    };
+    });
   },
   [CLEAR_ALL]: () => {
-    return {
+    return fromJS({
       modals: []
-    };
+    });
   }
 });
 
@@ -56,4 +57,3 @@ export function clearAll() {
     type: CLEAR_ALL
   };
 }
-
