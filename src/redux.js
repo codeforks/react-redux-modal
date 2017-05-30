@@ -20,7 +20,7 @@ export default createReducer(initialSate, {
     }])))
   },
   [REMOVE_MODAL]: (state, id) => {
-    return state.set('modals', state.get('modals').filter(modal => modal.id !== id))
+    return state.set('modals', state.get('modals').filter(modal => modal.get('id') !== id))
   },
   [CLEAR_ALL]: () => {
     return fromJS({
