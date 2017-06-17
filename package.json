@@ -129,6 +129,7 @@
     "classnames": "^2.2.3",
     "eventemitter3": "^1.1.1",
     "immutable": "^3.8.1",
+    "prop-types": "^15.5.10",
     "uuid": "^2.0.1"
   }
 }
